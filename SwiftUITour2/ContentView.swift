@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var sliderAmount: CGFloat = 0.0
     var body: some View {
-        Text("Hello World")
+        VStack {
+            Slider(value: $sliderAmount, in: 0...10)
+            Text("SwiftUI Tour")
+                .font(.largeTitle)
+                .blur(radius: sliderAmount)
+                .rotationEffect(.degrees(Double(sliderAmount) * 36))
+                .scaleEffect(sliderAmount)
+        }
     }
 }
 
